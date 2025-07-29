@@ -1,17 +1,20 @@
 function calculateTip() {
-  const billAmount = parseFloat(document.getElementById("bill").value);
+  const bill = parseFloat(document.getElementById("bill").value);
   const tipPercentage = parseFloat(document.getElementById("tip").value);
   const result = document.getElementById("result");
 
-  if (isNaN(billAmount) || isNaN(tipPercentage)) {
+  if (isNaN(bill) || isNaN(tipPercentage)) {
     result.textContent = "Please enter valid numbers.";
     result.style.color = "red";
     return;
   }
 
-  const tipAmount = billAmount * (tipPercentage / 100);
-  const total = billAmount + tipAmount;
+  const tipAmount = (bill * tipPercentage) / 100;
+  const total = bill + tipAmount;
 
-  result.innerHTML = `Tip: $${tipAmount.toFixed(2)}<br>Total: $${total.toFixed(2)}`;
+  result.innerHTML = `
+    Tip Amount: $${tipAmount.toFixed(2)} <br>
+    Total Amount: $${total.toFixed(2)}
+  `;
   result.style.color = "green";
 }
